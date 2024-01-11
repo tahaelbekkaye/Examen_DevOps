@@ -9,6 +9,8 @@ public class ProduitService {
     public ProduitService() {
         this.produits = new ArrayList<>();
     }
+
+    
 	// Fonction pour ajouter un produit
     public void ajouterProduit(Produit produit) {
         // Vérification de l'unicité du produit
@@ -24,9 +26,14 @@ public class ProduitService {
             System.out.println("Erreur : Un produit avec le même ID ou nom existe déjà.");
         }
     }
+  	// Fonction pour lister tous les produits
+    public List<Produit> listerProduits() {
+        return produits;
+}
       // Fonction pour vérifier si un produit existe déjà
     private boolean produitExiste(Long id, String nom) {
         return produits.stream().anyMatch(p -> p.getId().equals(id) || p.getNom().equals(nom));
+
     }
 
     // Fonction pour vérifier si un produit existe déjà (utilisée pour la modification et la suppression)
